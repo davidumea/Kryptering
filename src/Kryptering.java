@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.io.*;
+import java.util.ArrayList;
 
 public class Kryptering {
     public static void main(String[] args) {
@@ -13,7 +14,39 @@ public class Kryptering {
         Controller theController = new Controller(theGUI, theModel);*/
         String filnamn;
         String msg = null;
+        String key = "sgsa";
         FileReader fr = null;
+        int linenumber;
+
+        DataOutputStream output = null;
+        try {
+            output = new DataOutputStream (new BufferedOutputStream(new FileOutputStream("myData.dat")));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            output.write(14);
+            output.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        //Decrypt
+
+        DataInputStream input = null;
+        try {
+            input = new DataInputStream (new BufferedInputStream(new FileInputStream("myData.dat")));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            int i;
+            while ((i = input.read()) >= 0)
+            System.out.println(i);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
         filnamn = JOptionPane.showInputDialog(null, "Ange filnamn");
         /*FileWriter fw = null;
@@ -30,15 +63,20 @@ public class Kryptering {
             e.printStackTrace();
         }
         BufferedReader inFil = new BufferedReader(fr);
+        ArrayList<String> lines = new ArrayList<String>();
         try {
-            msg = inFil.readLine();
+            while ((msg = inFil.readLine()) != null) {
+                lines.add(msg);
+
+            }
+
         } catch (IOException e) {
-            e.printStackTrace();
+
         }
 
 
         //String msg = JOptionPane.showInputDialog(null, "Skriv in ditt meddelande");
-        String key = "sgsa";
+        msg = lines.get(0);
         int[] crypt = new int[msg.length()];
 
         while (msg.length() > key.length()) {
