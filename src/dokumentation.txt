@@ -1,0 +1,25 @@
+Inledning
+
+Vi har fått i uppgift att skapa ett program som kan ta en fil med text i och kryptera innehållet till en annan fil,
+sedan ska den kunna decryptera meddelandet med hjälp av en nyckel
+
+Processbeskrivning
+
+Jag utgick ifrån kod som vi fick av läraren och började med att göra så att jag kunde kryptera siffror till binära siffror.
+Nästa steg var att göra så att meddelandet gick att dekryptera, att göra det läsbart igen.
+Sedan utvecklade jag programmet därifrån, gjorde så att det gick att kryptera och dekryptera text till binära tal.
+Nästa steg var att välja en fil med text och kryptera hela filen till binära tal. Sist men inte minst så integrerade jag mer kod
+från läraren som gjorde så att texten blir konverterad till oläsbara tecken istället för binära tal. Det går fortfarande att dekryptera
+
+Problem, lösningar
+
+
+
+kod-dokumentation
+Algoritmbeskrivningar
+
+Finns i javadocs
+
+Diskussion
+
+Jag han inte klart med det grafiska gränssnittet, just nu fungerar programmet bara genom console och en JOptionpane
